@@ -1,10 +1,10 @@
 {
-  "name": "@view-js/scheduler",
+  "name": "@view-js/shared",
   "version": "0.0.1",
-  "description": "@view-js/scheduler",
+  "description": "@view-js/shared",
   "main": "index.js",
-  "module": "dist/scheduler.esm-bundler.js",
-  "types": "dist/scheduler.d.ts",
+  "module": "dist/shared.esm-bundler.js",
+  "types": "dist/shared.d.ts",
   "files": [
     "index.js",
     "dist"
@@ -19,12 +19,12 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/J-env/view-js.git",
-    "directory": "packages/scheduler"
+    "directory": "packages/shared"
   },
   "bugs": {
     "url": "https://github.com/J-env/view-js/issues"
   },
-  "homepage": "https://github.com/J-env/view-js/tree/master/packages/scheduler#readme",
+  "homepage": "https://github.com/J-env/view-js/tree/master/packages/shared#readme",
   "author": "jxf",
   "license": "MIT"
 }

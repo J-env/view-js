@@ -4,11 +4,18 @@
   "description": "view-js",
   "main": "index.js",
   "module": "dist/view-js.esm-bundler.js",
+  "types": "dist/view-js.d.ts",
   "files": [
     "index.js",
     "dist"
   ],
-  "types": "dist/view-js.d.ts",
+  "sideEffects": false,
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {},
+  "keywords": [
+    "view-js"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/J-env/view-js.git",
@@ -17,10 +24,7 @@
   "bugs": {
     "url": "https://github.com/J-env/view-js/issues"
   },
-  "keywords": [
-    "view-js"
-  ],
+  "homepage": "https://github.com/J-env/view-js/tree/master/packages/view-js#readme",
   "author": "jxf",
-  "license": "MIT",
-  "homepage": "https://github.com/J-env/view-js/tree/main/packages/view-js#readme"
+  "license": "MIT"
 }
