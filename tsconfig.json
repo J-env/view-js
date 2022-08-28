@@ -1,0 +1,56 @@
+{
+  "compilerOptions": {
+    "target": "es2016",
+    "module": "esnext",
+    "lib": [
+      "esnext",
+      "DOM"
+    ],
+    "outDir": "dist",
+    "declaration": false,
+    "noEmit": true,
+    "allowJs": false,
+    "useDefineForClassFields": false,
+    "moduleResolution": "node",
+    "strict": true,
+    "emitDeclarationOnly": false,
+    "sourceMap": false,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "removeComments": true,
+    "noUnusedLocals": true,
+    "experimentalDecorators": true,
+    // "noUnusedParameters": false,
+    // "noImplicitReturns": false,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noImplicitAny": false,
+    "jsx": "preserve",
+    "rootDir": ".",
+    "baseUrl": ".",
+    "paths": {
+      "@view-js/*": ["packages/*/src"],
+      "view-js": ["packages/view-js/src"]
+    },
+    "types": [
+      "node",
+      "jest"
+    ],
+    "typeRoots": [
+      "./node_modules/@types/"
+    ],
+  },
+  "include": [
+    "packages/global.d.ts",
+    "packages/*/src",
+    "packages/*/__tests__",
+    "**/*.ts",
+    "**/*.d.ts"
+  ],
+  "exclude": [
+    "dist",
+    "node_modules",
+    "scripts",
+    "**/*.js"
+  ]
+}

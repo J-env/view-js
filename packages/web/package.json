@@ -1,0 +1,26 @@
+{
+  "name": "@view-js/web",
+  "version": "0.0.1",
+  "description": "@view-js/web",
+  "main": "index.js",
+  "module": "dist/web.esm-bundler.js",
+  "files": [
+    "index.js",
+    "dist"
+  ],
+  "types": "dist/web.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/J-env/view-js.git",
+    "directory": "packages/web"
+  },
+  "bugs": {
+    "url": "https://github.com/J-env/view-js/issues"
+  },
+  "keywords": [
+    "view-js"
+  ],
+  "author": "jxf",
+  "license": "MIT",
+  "homepage": "https://github.com/J-env/view-js/tree/main/packages/web#readme"
+}

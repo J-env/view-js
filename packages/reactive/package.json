@@ -1,0 +1,26 @@
+{
+  "name": "@view-js/reactive",
+  "version": "0.0.1",
+  "description": "@view-js/reactive",
+  "main": "index.js",
+  "module": "dist/reactive.esm-bundler.js",
+  "files": [
+    "index.js",
+    "dist"
+  ],
+  "types": "dist/reactive.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/J-env/view-js.git",
+    "directory": "packages/reactive"
+  },
+  "bugs": {
+    "url": "https://github.com/J-env/view-js/issues"
+  },
+  "keywords": [
+    "view-js"
+  ],
+  "author": "jxf",
+  "license": "MIT",
+  "homepage": "https://github.com/J-env/view-js/tree/main/packages/reactive#readme"
+}
