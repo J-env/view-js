@@ -1,42 +1,49 @@
 const fs = require('fs-extra')
 const chalk = require('chalk')
 
-const targets = getTargets()
-
 module.exports = {
   resolveExternal,
-  targets,
-  fuzzyMatchTarget
+  getTargets,
+  fuzzyMatchTarget,
+  getPackages(pathUrl) {
+    return fs.readdirSync(pathUrl).filter(p => !p.endsWith('.ts') && !p.startsWith('.'))
+  }
 }
 
+let __targets
+
 function getTargets() {
-  return fs.readdirSync('packages').filter(f => {
-    // 过滤掉非文件夹
-    if (!fs.statSync(`packages/${f}`).isDirectory()) {
-      return false
-    }
-
-    try {
-      const pkg = require(`../packages/${f}/package.json`)
-
-      if (pkg.private && !pkg.buildOptions) {
+  if (!__targets) {
+    __targets = fs.readdirSync('packages').filter(f => {
+      // 过滤掉非文件夹
+      if (!fs.statSync(`packages/${f}`).isDirectory()) {
         return false
       }
 
-    } catch (e) {
-      // 没有 package.json
-      return false
-    }
+      try {
+        const pkg = require(`../packages/${f}/package.json`)
 
-    return true
-  })
+        if (pkg.private && !pkg.buildOptions) {
+          return false
+        }
+
+      } catch (e) {
+        // 没有 package.json
+        return false
+      }
+
+      return true
+    })
+  }
+
+  return __targets
 }
 
 function fuzzyMatchTarget(partialTargets, includeAllMatching) {
   const matched = []
 
   partialTargets.forEach(partialTarget => {
-    for (const target of targets) {
+    for (const target of __targets) {
       if (target.match(partialTarget)) {
         matched.push(target)
 

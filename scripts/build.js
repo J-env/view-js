@@ -11,7 +11,9 @@ const execa = require('execa')
 const { gzipSync } = require('zlib')
 const { compress } = require('brotli')
 
-const { targets: allTargets, fuzzyMatchTarget } = require('./utils')
+const { getTargets, fuzzyMatchTarget } = require('./utils')
+
+const allTargets = getTargets()
 
 const args = require('minimist')(process.argv.slice(2))
 
