@@ -5,9 +5,6 @@ module.exports = {
   resolveExternal,
   getTargets,
   fuzzyMatchTarget,
-  getPackages(pathUrl) {
-    return fs.readdirSync(pathUrl).filter(p => !p.endsWith('.ts') && !p.startsWith('.'))
-  }
 }
 
 let __targets

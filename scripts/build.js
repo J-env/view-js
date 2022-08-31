@@ -17,6 +17,7 @@ const allTargets = getTargets()
 
 const args = require('minimist')(process.argv.slice(2))
 
+// ['view-js']
 const targets = args._
 const formats = args.formats || args.f
 const sourceMap = args.sourcemap || args.s
