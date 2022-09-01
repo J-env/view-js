@@ -13,8 +13,7 @@ const execa = require('execa')
 const args = require('minimist')(process.argv.slice(2))
 const currentVersion = require('../package.json').version
 
-const packages = fs.readdirSync(path.resolve(__dirname, '../packages'))
-  .filter(p => !p.endsWith('.ts') && !p.startsWith('.'))
+const packages = getPackages()
 
 const prereleaseVersion = () => {
   const spcv = semver.prerelease(currentVersion)
@@ -56,8 +55,10 @@ main()
     console.error(err)
   })
 
+let targetVersion
+
 async function main() {
-  let targetVersion = args._[0]
+  targetVersion = args._[0]
 
   if (!targetVersion) {
     // no explicit version, offer suggestions
@@ -79,6 +80,7 @@ async function main() {
       ).version
 
     } else {
+      // patch (0.0.2) | minor (0.0.2) | major (0.0.2)
       targetVersion = release.match(/\((.*)\)/)[1]
     }
   }
@@ -161,6 +163,7 @@ async function runGitCommit() {
   if (stdout) {
     step('\nCommitting changes...')
 
+    // git add -A
     await runIfNotDry('git', ['add', '-A'])
     await runIfNotDry('git', ['commit', '-m', `release: v${targetVersion}`])
 
@@ -202,6 +205,11 @@ async function runPushGithub() {
 }
 
 // =======================================================================
+function getPackages() {
+  return fs.readdirSync(path.resolve(__dirname, '../packages'))
+    .filter(p => !p.endsWith('.ts') && !p.startsWith('.'))
+}
+
 function updateVersions(version) {
   // 1. update root package.json
   updatePackage(path.resolve(__dirname, '..'), version)
